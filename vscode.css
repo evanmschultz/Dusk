@@ -1,65 +1,88 @@
-/* Code comment style */
-/* .mtk3 {
-	font-family: 'Monaspace Radon', monospace !important;
-	color: #008c7d !important;
-} */
+:root {
+	/* Colors */
+	--background-light: #313447;
+	--background-dark: #242736;
+	--border-color: #535969;
+	--slider-color: #bd88df;
+	--shadow-color: #00000033;
+	--shadow-color-heavy: rgba(0, 0, 0, 0.45);
+	--shadow-color-light: rgba(0, 0, 0, 0.25);
+	--hover-background: rgba(0, 0, 0, 0.2);
+	--input-background: rgba(34, 34, 34, 0.4);
+
+	/* Fonts */
+	--main-font: 'Iosevka Light';
+
+	/* Sizes */
+	--border-radius: 6px;
+	--border-radius-large: 10px;
+	--scrollbar-width: 2px;
+
+	/* Shadows */
+	--box-shadow: 0px 0px 5px var(--shadow-color);
+	--box-shadow-heavy: 0px 8px 32px var(--shadow-color-heavy);
+
+	/* Gradients */
+	--gradient-background: linear-gradient(
+		to bottom left,
+		var(--background-dark),
+		var(--background-light)
+	);
+	--gradient-tooltip: linear-gradient(#3c3c50 0%, #2a2b38 100%);
+
+	/* Blur */
+	--blur-background: rgba(0, 0, 0, 0.15);
+	--blur-amount: 1px;
+}
+
+.decorationsOverviewRuler {
+	width: calc(var(--scrollbar-width) * 4) !important;
+}
 
 /* Tab styling */
 .tab {
-	border-right: 1px #535969 solid !important;
-	border-top-right-radius: 6px !important;
-	/* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7) !important; */
-	background: linear-gradient(
-		to bottom left,
-		rgb(36, 39, 54),
-		#313447
-	) !important;
+	border-right: 1px var(--border-color) solid !important;
+	border-top-right-radius: var(--border-radius) !important;
+	box-shadow: var(--box-shadow) !important;
+	background: var(--gradient-background) !important;
 }
 
 /* Tab selected styling */
 .tab.selected {
 	background: none !important;
-	background-color: #313447 !important;
+	background-color: var(--background-light) !important;
 }
 
 .line-numbers {
-	/* position: relative !important; */
-	/* width: 35px !important; */
-	/* font-size: 16px !important; */
-	font-family: 'Iosevka Light' !important;
+	font-family: var(--main-font) !important;
 	opacity: 0.3;
 }
 
 /* Code canvas top shadow */
 .monaco-editor .scroll-decoration {
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3) !important;
+	box-shadow: 0px 0px 20px var(--shadow-color) !important;
 	top: -6px !important;
 }
 
-/* Toolbars when tabs are enabled. */
-/* .monaco-works */
-
 /* Side bar */
 .part.sidebar {
-	box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 0px 50px var(--shadow-color-light);
 }
 
 /* File Explorer Selected Item */
 .monaco-list.list_id_1 .monaco-list-row.selected {
-	/* background-color: rgb(70, 91, 107) !important;
-	opacity: 1 !important; */
-	border-top: 1px #535969 solid;
-	border-bottom: 1px #535969 solid;
+	border-top: 1px var(--border-color) solid;
+	border-bottom: 1px var(--border-color) solid;
 }
 
 /* All text outside of the editor */
 .monaco-scrollable-element {
-	font-family: 'Iosevka Light' !important;
+	font-family: var(--main-font) !important;
 }
 
 /* Sidebar top shadow */
 .monaco-scrollable-element > .shadow.top {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75) !important;
+	box-shadow: 0px 0px 10px var(--shadow-color-heavy) !important;
 	top: -3px !important;
 }
 
@@ -67,32 +90,26 @@
 .slider {
 	position: absolute !important;
 	right: 2px !important;
-	width: 2px !important;
-	background: rgb(137, 193, 203) !important;
+	width: var(--scrollbar-width) !important;
+	background: var(--slider-color) !important;
 	left: auto !important;
 }
 
 /* Tooltip box style */
 .monaco-editor-hover,
 .monaco-hover {
-	box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.45) !important;
+	box-shadow: var(--box-shadow-heavy) !important;
 	padding: 10px !important;
-	background-image: linear-gradient(#3c3c50 0%, #2a2b38 100%) !important;
-	backdrop-filter: blur(3px) !important;
-	border-radius: 10px !important;
-	border: 1px #535969 solid !important;
+	background-image: var(--gradient-tooltip) !important;
+	border-radius: var(--border-radius-large) !important;
+	border: 1px var(--border-color) solid !important;
 	opacity: 0.92 !important;
 }
 
-.codicon-search::before {
-	display: none !important;
-}
-
+/* Hidden elements */
+.codicon-search::before,
 .codicon-arrow-right,
-.codicon-arrow-left {
-	display: none !important;
-}
-
+.codicon-arrow-left,
 .titlebar-right > * {
 	display: none !important;
 }
@@ -101,12 +118,11 @@
 .quick-input-widget {
 	transform: translateY(-50%) !important;
 	top: 50% !important;
-	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.45) !important;
+	box-shadow: var(--box-shadow-heavy) !important;
 	padding: 10px 10px 18px 10px !important;
-	background-image: linear-gradient(#3c3c50 0%, #2a2b38 100%) !important;
-	backdrop-filter: blur(3px) !important;
-	border-radius: 10px !important;
-	border: 1px #535969 solid !important;
+	background-image: var(--gradient-tooltip) !important;
+	border-radius: var(--border-radius-large) !important;
+	border: 1px var(--border-color) solid !important;
 }
 
 /* Remove background for lists */
@@ -116,7 +132,7 @@
 
 /* List hover */
 .monaco-list-row:hover {
-	background: rgba(0, 0, 0, 0.2) !important;
+	background: var(--hover-background) !important;
 }
 
 .notifications-toasts .monaco-list-row:hover {
@@ -128,8 +144,8 @@
 	border-radius: 8px !important;
 	padding: 8px !important;
 	border: none !important;
-	background-color: rgba(34, 34, 34, 0.4) !important;
-	font-family: 'Geist Mono' !important;
+	background-color: var(--input-background) !important;
+	font-family: var(--main-font) !important;
 	font-size: 14px !important;
 	margin-bottom: 16px !important;
 }
@@ -139,16 +155,16 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.15);
+	background: var(--blur-background);
 	top: 0;
 	left: 0;
-	backdrop-filter: blur(8px);
-	z-index: 1000; /* Ensure it is above other elements */
+	backdrop-filter: blur(var(--blur-amount));
+	z-index: 1000;
 }
 
 /* Blur effect for sticky widgets */
 .blur-effect {
-	backdrop-filter: blur(8px);
+	backdrop-filter: blur(var(--blur-amount));
 	z-index: 1000 !important;
 }
 
